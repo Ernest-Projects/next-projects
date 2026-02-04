@@ -2,5 +2,7 @@
 
  
 export const PAGES = {
-    PROFILE: (username:string) => `/u/${username}`
+    HOME: `/`,
+    EXPLORE: `/explore`,
+    PROFILE: (username:string) => `/profile/${username}`,
 }
