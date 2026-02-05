@@ -1,4 +1,4 @@
-import { PAGES } from "@/config/profile.config";
+import { PAGES } from "@/config/pages.config";
 import type { ITweet } from "@/shared/types/tweets.types";
 import Image from "next/image";
 
