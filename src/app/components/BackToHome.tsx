@@ -11,7 +11,7 @@ export default function BackToHome({path}: BackToHomeProps) {
 
   return (
     <>
-      <button className="mt-5 text-neutral-600" onClick={() => router.push(path)}>
+      <button className="mt-5 text-neutral-600 transition-colors hover:text-white" onClick={() => router.push(path)}>
         {" "}
         ← Back to home{" "}
       </button>
