@@ -5,7 +5,13 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   reactStrictMode: true,
   images: {
-    domains: ['fakestoreapi.com']
+     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: 'fakestoreapi.com',
+        pathname: '**'
+      },
+    ],
   },
   env: {
     FAKEAPI_URL: process.env.NEXT_API_URL
