@@ -1,21 +1,14 @@
-
-'use client'
-import BackToHome from "@/app/components/BackToHome";
 import type { Metadata } from "next";
-import { usePathname, useParams} from "next/navigation";
+import { Explore } from "./Explore";
 
 const metadata: Metadata = {
     title: "Profile"
-}
+};
+type TSearchParams = {tag?:string};
 
 
-export default function ExplorePage() {
+export default async function ExplorePage({searchParams}: {searchParams: Promise<TSearchParams>}) {
 
-
-    return <div> <h1 className=" text-3xl">
-        Explore
-        
-        </h1> 
-        <BackToHome path = {"/"}></BackToHome>
-        </div>
+    const {tag} = await searchParams;
+    return <Explore tag = {tag}/>
 }
