@@ -3,6 +3,7 @@ import { Tweet } from "./Tweet";
 import type { ITweet } from "@/shared/types/tweets.types";
 import { KITCHEN_TWEETS } from "@/shared/data/tweets.data";
 import type { Metadata } from "next";
+import { TweetForm } from "./TweetForm";
 
 const metadata: Metadata = {
   title: "Home",
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <div>
       <header className="my-6 text-2xl">Home</header>
+      <TweetForm/>
 
       <div className="space-y-6">
         {KITCHEN_TWEETS.map((item, index) => {
