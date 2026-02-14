@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "./Menu";
+import { Menu } from "./menu/Menu";
 
 export const Header = () => {
   return (
