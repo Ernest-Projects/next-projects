@@ -1,14 +1,29 @@
-import BackToHome from "@/app/components/BackToHome";
+// import BackToHome from "@/app/components/BackToHome";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 
-const metadata: Metadata = {
-  title: "Profile",
-};
+
+type Params = {username: string};
+
+
+export async function generateMetadata ({params}: {params: Promise<Params>}): Promise<Metadata> {
+  return {title: `@${(await params).username}'s profile`}
+}
+
+
+const DynamicBackToHomeButton = dynamic(
+  () => import('@/app/components/BackToHome'),
+  
+  {
+    loading: () => <p>Loading button...</p>,
+  }
+);
+
 
 export default async function ProfilePage({
   params,
 }: {
-  params: { username: string };
+  params: Params;
 }) {
     const  {username } = await params; 
 
@@ -16,7 +31,8 @@ export default async function ProfilePage({
     <div>
       {" "}
       <h1 className=" text-3xl">{username}`s Profile</h1>
-      <BackToHome path={"/"}></BackToHome>
+
+      <DynamicBackToHomeButton path = "/"></DynamicBackToHomeButton>
     </div>
   );
 }
